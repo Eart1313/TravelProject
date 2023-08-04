@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+.logo {
+  color: #2e9bdb;
+  font-weight: 700;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-box {
+  text-align: center;
+  width: 1000px;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid silver;
+  place
+}
+
+.input-box::placeholder {
+    font-family: "Noto Sans Thai", sans-serif;
+    font-size: 1rem;
+    
+}
+
+.main-pic {
+    width: 450px;
+    height: 300px;
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.display {
+   display: flex;
+   flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.component {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: 3rem;
+}
+
+.des-container{
+  display:flex;
+  flex-direction: column;
+  padding: 0 0 0 50px;
+}
+
+.topic {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 300;
+
+}
+
+.readmore {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  color: rgb(25, 144, 234);
+}
+
+.tag-container {
+  display: flex;
+}
+
+.tag {
+  text-decoration: underline;
+  font-size: 1rem;
+  font-family: "Noto Sans Thai", sans-serif;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  margin: 0 10px 0 10px;
+}
+
+.other-pic-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px
+}
+
+.other-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 25px;
+  object-fit: cover;
+}
