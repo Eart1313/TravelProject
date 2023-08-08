@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+button{
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
 body {
     font-family: "Noto Sans Thai", sans-serif;
 }
@@ -36,7 +42,6 @@ body {
 .input-box::placeholder {
     font-family: "Noto Sans Thai", sans-serif;
     font-size: 1rem;
-    
 }
 
 .main-pic {
@@ -93,9 +98,6 @@ body {
   text-decoration: underline;
   font-size: 1rem;
   font-family: "Noto Sans Thai", sans-serif;
-  border: none;
-  cursor: pointer;
-  background: transparent;
   margin: 0 10px 0 10px;
 }
 
@@ -110,4 +112,16 @@ body {
   height: 120px;
   border-radius: 25px;
   object-fit: cover;
+}
+
+.copylink-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+}
+
+.copylink-button {
+  width: 60px;
 }

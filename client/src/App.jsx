@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import link from "./assets/link.png";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -10,27 +12,21 @@ function App() {
     setSearch(e.target.value);
   };
 
-  const handleAddText = (item) => {
-    const newSearch = `${search} ${item}`;
-    setSearch(newSearch);
-    console.log(newSearch);
-    console.log(search);
-  };
-
-  const fetchPlace = async () => {
+  const fetchPlace = async (keywords) => {
     try {
       const result = await axios.get(
-        `http://localhost:4001/trips?keywords=${search}`
+        `http://localhost:4001/trips?keywords=${keywords}`
       );
       setPlace(result.data.data);
+      console.log(place);
     } catch (error) {
       console.log("Error...");
     }
   };
 
   useEffect(() => {
-    fetchPlace();
-  });
+    fetchPlace(search);
+  }, [search]);
 
   return (
     <div className="App">
@@ -60,9 +56,11 @@ function App() {
               <div className="description">
                 {item.description.slice(0, 100)} ...
               </div>
-              <a href={item.url}>
-                <div className="readmore">อ่านต่อ</div>
-              </a>
+
+              <div className="readmore">
+                <a href={item.url}>อ่านต่อ</a>
+              </div>
+
               <div className="tag-container">
                 <div>หมวด</div>
                 <div>
@@ -70,7 +68,11 @@ function App() {
                   {item.tags.map((item, index) => (
                     <button
                       className="tag"
-                      onClick={() => handleAddText(`${item}`)}
+                      onClick={() =>
+                        search === ""
+                          ? setSearch(`${item}`)
+                          : +setSearch(search + " " + `${item}`)
+                      }
                       key={index}>
                       {item}
                     </button>
@@ -83,6 +85,17 @@ function App() {
                     <img src={photo} className="other-pic" />
                   </div>
                 ))}
+                <div className="copylink-container">
+                  <CopyToClipboard text={item.url}>
+                    <button>
+                      <img
+                        src={link}
+                        alt="copylink"
+                        className="copylink-button"
+                      />
+                    </button>
+                  </CopyToClipboard>
+                </div>
               </div>
             </div>
           </div>
